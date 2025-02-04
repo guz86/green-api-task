@@ -1,7 +1,7 @@
 import { Header } from './components/Header/Header';
-import styles from './App.module.scss';
 import { Chats } from './components/Chats/Chats';
 import { Dialog } from './components/Dialog/Dialog';
+import styles from './App.module.scss';
 
 function App() {
   return (
