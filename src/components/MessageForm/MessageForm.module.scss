@@ -1,0 +1,13 @@
+.messageForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  input {
+    padding: 5px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    resize: none;
+    background-color: #2a3942;
+  }
+}

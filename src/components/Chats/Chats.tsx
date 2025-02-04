@@ -2,10 +2,16 @@ import { useEffect } from 'react';
 import { Contact } from '../Contact/Contact';
 import styles from './Chats.module.scss';
 import { useContacts } from '../../hooks/useContacts';
+import { useContactContext } from '../../context/ContactContext';
 
 export const Chats = () => {
   const { userContacts, fetchContacts, loading, error } = useContacts();
-  // const { userContacts, groupContacts, fetchContacts, loading, error } =
+  const { setSelectedContactId, setSelectedContactName } = useContactContext();
+
+  const handleContactClick = (id: string, name: string) => {
+    setSelectedContactId(id);
+    setSelectedContactName(name);
+  };
 
   useEffect(() => {
     fetchContacts();
@@ -21,12 +27,14 @@ export const Chats = () => {
         <h2>{userContacts.length}</h2>
         <ul>
           {userContacts.map((contact) => (
-            <Contact key={contact.id} {...contact} />
+            <Contact
+              key={contact.id}
+              {...contact}
+              onClick={handleContactClick}
+            />
           ))}
         </ul>
       </div>
-
-      {/* <Contact /> */}
     </div>
   );
 };

@@ -15,20 +15,20 @@ export const apiClient = {
     return response.json();
   },
 
-  //   async post<T>(endpoint: string, body: object): Promise<T> {
-  //     const response = await fetch(
-  //       `${API_URL}/waInstance${ID_INSTANCE}/${endpoint}/${API_TOKEN_INSTANCE}`,
-  //       {
-  //         method: 'POST',
-  //         headers: { 'Content-Type': 'application/json' },
-  //         body: JSON.stringify(body),
-  //       }
-  //     );
+  async post<T>(endpoint: string, body: object): Promise<T> {
+    const response = await fetch(
+      `${API_URL}/waInstance${ID_INSTANCE}/${endpoint}/${API_TOKEN_INSTANCE}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      }
+    );
 
-  //     if (!response.ok) {
-  //       throw new Error(`Ошибка ${response.status}: ${response.statusText}`);
-  //     }
+    if (!response.ok) {
+      throw new Error(`Ошибка ${response.status}: ${response.statusText}`);
+    }
 
-  //     return response.json();
-  //   },
+    return response.json();
+  },
 };

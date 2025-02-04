@@ -4,11 +4,17 @@ interface ContactItemProps {
   id: string;
   name: string;
   contactName?: string;
+  onClick: (id: string, name: string) => void;
 }
 
-export const Contact = ({ name, contactName }: ContactItemProps) => {
+export const Contact = ({
+  id,
+  name,
+  contactName,
+  onClick,
+}: ContactItemProps) => {
   return (
-    <li className={styles.contact}>
+    <li onClick={() => onClick(id, name)} className={styles.contact}>
       <strong>{name}</strong>
       {contactName && <span> ({contactName})</span>}
     </li>
