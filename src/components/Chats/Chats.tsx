@@ -24,7 +24,7 @@ export const Chats = () => {
     <div className={styles.container}>
       <h1>Chats</h1>
       <div>
-        <h2>{userContacts.length}</h2>
+        {/* <h2>{userContacts.length}</h2> */}
         <ul>
           {userContacts.map((contact) => (
             <Contact

@@ -1,8 +1,16 @@
 .container {
   display: flex;
-  flex-grow: 1;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
+  color: #e4e8ea;
+}
+
+.messages {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }

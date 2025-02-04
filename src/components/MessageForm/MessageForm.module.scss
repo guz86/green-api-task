@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding-bottom: 20px;
 
   input {
     padding: 5px 15px;
@@ -9,5 +10,7 @@
     border-radius: 8px;
     resize: none;
     background-color: #2a3942;
+    margin-left: 50px;
+    margin-right: 50px;
   }
 }

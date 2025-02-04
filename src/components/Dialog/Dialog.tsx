@@ -13,8 +13,10 @@ export const Dialog = () => {
 
   return (
     <div className={styles.container}>
-      <h2>{selectedContactName ? selectedContactName : selectedContactId}</h2>
-      <MessageForm id={selectedContactId} />
+      <div className={styles.messages}>
+        <h2>{selectedContactName ? selectedContactName : selectedContactId}</h2>
+        <MessageForm id={selectedContactId} />
+      </div>
     </div>
   );
 };
