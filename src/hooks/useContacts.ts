@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { contactsApi } from '../services/contactsApi';
 
-const COUNT_USER = 100;
+const COUNT_USER = 300;
 
 export interface Contact {
   id: string;

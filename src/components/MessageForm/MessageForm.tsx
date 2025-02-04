@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './MessageForm.module.scss';
+import { messageApi } from '../../services/messageApi';
 
 interface MessageFormProps {
   id: string;
@@ -7,12 +8,25 @@ interface MessageFormProps {
 
 export const MessageForm = ({ id }: MessageFormProps) => {
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (message.trim()) {
+    if (!message.trim()) return;
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      await messageApi.sendMessage(id, message);
       console.log(`Отправка сообщения для контакта с ID ${id}: ${message}`);
       setMessage('');
+    } catch (err) {
+      setError('Не удалось отправить сообщение');
+      console.error(err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -31,7 +45,9 @@ export const MessageForm = ({ id }: MessageFormProps) => {
         onKeyDown={handleKeyDown}
         placeholder='Type a message...'
         className={styles.textarea}
+        disabled={loading}
       />
+      {error && <p className={styles.error}>{error}</p>}
     </form>
   );
 };
