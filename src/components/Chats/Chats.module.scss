@@ -1,4 +1,7 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   padding: 0 15px;
   min-width: 420px;
   font-size: 25px;
@@ -10,6 +13,12 @@
     padding: 6px;
     margin: 0;
   }
+
+  div {
+    flex: 1;
+    overflow-y: auto;
+  }
+
   ul {
     list-style: none;
     padding: 0;
