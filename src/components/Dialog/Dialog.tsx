@@ -1,18 +1,28 @@
-import { useContactContext } from '../../context/ContactContext';
+import { useState } from 'react';
+// import { useContactContext } from '../../context/ContactContext';
+
 import { MessageForm } from '../MessageForm/MessageForm';
 import styles from './Dialog.module.scss';
+import AuthSetup from '../AuthSetup/AuthSetup';
 
 export const Dialog = () => {
-  const { selectedContactId, selectedContactName } = useContactContext();
+  // const { selectedContactId, selectedContactName } = useContactContext();
 
-  if (!selectedContactId) {
+  const [idInstance, setIdInstance] = useState<string | null>(null);
+  const [apiTokenInstance, setApiTokenInstance] = useState<string | null>(null);
+  const [selectedContact, setSelectedContact] = useState<string | null>(null);
+
+  // if (!selectedContactId) {
+
+  if (!idInstance || !apiTokenInstance) {
     return (
       <div className={styles.container}>
-        <h1>Download WhatsApp for Windows</h1>
-        <h2>
-          Make calls, share your screen and get a faster experience when you
-          download the Windows app.
-        </h2>
+        <AuthSetup
+          onSave={(id, token) => {
+            setIdInstance(id);
+            setApiTokenInstance(token);
+          }}
+        />
       </div>
     );
   }
@@ -20,8 +30,17 @@ export const Dialog = () => {
   return (
     <div className={styles.container}>
       <div className={styles.messages}>
-        <h1>{selectedContactName ? selectedContactName : selectedContactId}</h1>
-        <MessageForm id={selectedContactId} />
+        {/* <h1>{selectedContact ? selectedContactName : selectedContactId}</h1> */}
+        {selectedContact && <h1>Контакт с {selectedContact}</h1>}
+        {/* <Notifications
+          idInstance={idInstance}
+          apiTokenInstance={apiTokenInstance}
+        /> */}
+        <MessageForm
+          idInstance={idInstance}
+          apiTokenInstance={apiTokenInstance}
+          onContactChange={setSelectedContact}
+        />
       </div>
     </div>
   );

@@ -31,9 +31,16 @@ export const apiClient = {
     return response.json();
   },
 
-  async post<T>(endpoint: string, body: object): Promise<T> {
+  //idInstance, apiTokenInstance
+
+  async post<T>(
+    endpoint: string,
+    body: object,
+    idInstance: string,
+    apiTokenInstance: string
+  ): Promise<T> {
     const response = await fetch(
-      `${API_URL}/waInstance${ID_INSTANCE}/${endpoint}/${API_TOKEN_INSTANCE}`,
+      `${API_URL}/waInstance${idInstance}/${endpoint}/${apiTokenInstance}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

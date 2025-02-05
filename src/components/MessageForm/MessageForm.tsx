@@ -1,15 +1,39 @@
 import { useState } from 'react';
 import styles from './MessageForm.module.scss';
 import { messageApi } from '../../services/messageApi';
+import ContactSetup from '../ContactSetup/ContactSetup';
 
 interface MessageFormProps {
-  id: string;
+  idInstance: string;
+  apiTokenInstance: string;
+  onContactChange: (contact: string | null) => void;
 }
 
-export const MessageForm = ({ id }: MessageFormProps) => {
+export const MessageForm = ({
+  idInstance,
+  apiTokenInstance,
+  onContactChange,
+}: MessageFormProps) => {
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const [contact, setContact] = useState<string | null>(null);
+
+  // if (!selectedContactId) {
+
+  if (!contact) {
+    return (
+      <div className={styles.container}>
+        <ContactSetup
+          onSave={(id) => {
+            setContact(id);
+            onContactChange(id);
+          }}
+        />
+      </div>
+    );
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,8 +43,15 @@ export const MessageForm = ({ id }: MessageFormProps) => {
     setError(null);
 
     try {
-      await messageApi.sendMessage(id, message);
-      console.log(`Отправка сообщения для контакта с ID ${id}: ${message}`);
+      await messageApi.sendMessage(
+        contact,
+        message,
+        idInstance,
+        apiTokenInstance
+      );
+      console.log(
+        `Отправка сообщения для контакта с ID ${contact}: ${message}`
+      );
       setMessage('');
     } catch (err) {
       setError('Не удалось отправить сообщение');
