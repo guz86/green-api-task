@@ -46,7 +46,8 @@ npm run build
 - shared – Shared resources like icons, utilities, constants, and helper functions used throughout the app.
 
 ## Screenshots
-![image](https://github.com/user-attachments/assets/3aa95e6f-1bff-4aa5-bc03-0e20df561cb1)
+![image](https://github.com/user-attachments/assets/e74cdb7c-0841-4f72-abf6-bf03445f0fda)
+
 
 
 
