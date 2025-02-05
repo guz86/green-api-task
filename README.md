@@ -1,50 +1,59 @@
-# React + TypeScript + Vite
+# SPA for green-api
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This application is integrated with the Green API, providing a platform for developers to connect their accounts and interact with their contacts.
 
-Currently, two official plugins are available:
+Key Features:
+Developer Account Integration: Users can securely connect their developer account to the Green API, enabling communication with contacts.
+Contact Selection: Users can choose a specific contact to initiate a conversation.
+Message Sending: Once a contact is selected, users can send messages to them.
+Notification System: The application supports receiving notifications when the selected contact replies. These notifications are handled in real-time, ensuring the user stays informed about incoming messages.
+The app simplifies interaction with contacts and provides a smooth experience for sending and receiving messages through the Green API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Deploy: 
 
-## Expanding the ESLint configuration
+## Author
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [Pavel Gordienko](https://github.com/guz86)
 
-- Configure the top-level `parserOptions` property like this:
+## Setup and Running
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+- Use `node 22.x` or higher.
+- Clone this repo: `$ git clone https://github.com/guz86/green-api-task`. 
+- Install dependencies: `$ npm install`.
+- Start server: `$ npm run dev`.
+- Now you can see web application to the address: `http://localhost:5173/`.
+
+### Build
+
+Builds the app for production to the build folder. It correctly bundles React in production mode and optimizes the build for the best performance.
+
+```bash
+npm run build
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Stack
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react';
+- React
+- Typescript
+- Vite
+ 
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-});
-```
+## Folder structure
+
+- components – Contains reusable components that make up the UI of your application (e.g., buttons, forms, cards, etc.).
+- hooks – Custom React hooks that encapsulate reusable logic for managing state, fetching data, etc.
+- services – API requests and other service-related logic for interacting with external systems (e.g., Green API integration, etc.).
+- shared – Shared resources like icons, utilities, constants, and helper functions used throughout the app.
+
+## Screenshots
+![image](https://github.com/user-attachments/assets/3aa95e6f-1bff-4aa5-bc03-0e20df561cb1)
+
+
+
+
+![image](https://github.com/user-attachments/assets/25322bf4-5ce1-4114-8d5f-1e8a21510d85)
+
+
+
+
+
