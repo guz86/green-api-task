@@ -52,7 +52,7 @@ export const useNotifications = (
 
     const intervalId = setInterval(() => {
       fetchNotifications();
-    }, 30000);
+    }, 15000);
 
     return () => clearInterval(intervalId);
   }, [idInstance, apiTokenInstance, receiveTimeout, contactId]);
