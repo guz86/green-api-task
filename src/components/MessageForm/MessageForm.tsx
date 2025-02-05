@@ -7,12 +7,14 @@ interface MessageFormProps {
   idInstance: string;
   apiTokenInstance: string;
   onContactChange: (contact: string | null) => void;
+  onSendMessage: (message: string) => void;
 }
 
 export const MessageForm = ({
   idInstance,
   apiTokenInstance,
   onContactChange,
+  onSendMessage,
 }: MessageFormProps) => {
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
@@ -52,6 +54,7 @@ export const MessageForm = ({
       console.log(
         `Отправка сообщения для контакта с ID ${contact}: ${message}`
       );
+      onSendMessage(`Отправлено: ${contact}: ${message}`);
       setMessage('');
     } catch (err) {
       setError('Не удалось отправить сообщение');

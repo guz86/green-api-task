@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { MessageForm } from '../MessageForm/MessageForm';
 import styles from './Dialog.module.scss';
 import AuthSetup from '../AuthSetup/AuthSetup';
+import { LogMessages } from '../LogMessages/LogMessages';
 
 export const Dialog = () => {
   // const { selectedContactId, selectedContactName } = useContactContext();
@@ -11,6 +12,11 @@ export const Dialog = () => {
   const [idInstance, setIdInstance] = useState<string | null>(null);
   const [apiTokenInstance, setApiTokenInstance] = useState<string | null>(null);
   const [selectedContact, setSelectedContact] = useState<string | null>(null);
+  const [messages, setMessages] = useState<string[]>([]);
+
+  const handleSendMessage = (message: string) => {
+    setMessages((prevMessages) => [...prevMessages, message]);
+  };
 
   // if (!selectedContactId) {
 
@@ -36,10 +42,14 @@ export const Dialog = () => {
           idInstance={idInstance}
           apiTokenInstance={apiTokenInstance}
         /> */}
+
+        {selectedContact && <LogMessages messages={messages} />}
+
         <MessageForm
           idInstance={idInstance}
           apiTokenInstance={apiTokenInstance}
           onContactChange={setSelectedContact}
+          onSendMessage={handleSendMessage}
         />
       </div>
     </div>
