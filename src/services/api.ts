@@ -15,10 +15,15 @@ export const apiClient = {
     return response.json();
   },
 
-  async getWithParams<T>(endpoint: string, params: Record<string, string>): Promise<T> {
-    const url = new URL(`${API_URL}/waInstance${ID_INSTANCE}/${endpoint}/${API_TOKEN_INSTANCE}`);
+  async getWithParams<T>(
+    endpoint: string,
+    params: Record<string, string>
+  ): Promise<T> {
+    const url = new URL(
+      `${API_URL}/waInstance${ID_INSTANCE}/${endpoint}/${API_TOKEN_INSTANCE}`
+    );
 
-    Object.keys(params).forEach(key => {
+    Object.keys(params).forEach((key) => {
       url.searchParams.append(key, params[key]);
     });
 
