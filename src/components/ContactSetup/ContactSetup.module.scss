@@ -1,0 +1,23 @@
+.messageForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  h2 {
+    font-size: 26px;
+  }
+
+  input {
+    padding: 5px 15px;
+    min-width: 500px;
+    border-radius: 8px;
+    resize: none;
+    background-color: #2a3942;
+
+    font-size: 16px;
+  }
+  button {
+    font-size: 26px;
+  }
+}
