@@ -1,12 +1,9 @@
 import { useState } from 'react';
 import styles from './ContactSetup.module.scss';
-
-interface ContactSetupProps {
-  onSave: (id: string) => void;
-}
+import { ContactSetupProps } from './types';
 
 const ContactSetup = ({ onSave }: ContactSetupProps) => {
-  //"wid": "79119065211@c.us",
+  //"wid": "79119365221@c.us",
   const [id, setId] = useState('');
 
   return (

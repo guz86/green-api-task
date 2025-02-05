@@ -2,13 +2,7 @@ import { useState } from 'react';
 import styles from './MessageForm.module.scss';
 import { messageApi } from '../../services/messageApi';
 import ContactSetup from '../ContactSetup/ContactSetup';
-
-interface MessageFormProps {
-  idInstance: string;
-  apiTokenInstance: string;
-  onContactChange: (contact: string | null) => void;
-  onSendMessage: (message: string) => void;
-}
+import { MessageFormProps } from './types';
 
 export const MessageForm = ({
   idInstance,
@@ -21,8 +15,6 @@ export const MessageForm = ({
   const [error, setError] = useState<string | null>(null);
 
   const [contact, setContact] = useState<string | null>(null);
-
-  // if (!selectedContactId) {
 
   if (!contact) {
     return (
@@ -50,9 +42,6 @@ export const MessageForm = ({
         message,
         idInstance,
         apiTokenInstance
-      );
-      console.log(
-        `Отправка сообщения для контакта с ID ${contact}: ${message}`
       );
       onSendMessage(`Отправлено: ${contact}: ${message}`);
       setMessage('');

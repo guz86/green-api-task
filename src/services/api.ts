@@ -15,29 +15,6 @@ export const apiClient = {
     return response.json();
   },
 
-  async getWithParams<T>(
-    endpoint: string,
-    params: Record<string, string>
-  ): Promise<T> {
-    const url = new URL(
-      `${API_URL}/waInstance${ID_INSTANCE}/${endpoint}/${API_TOKEN_INSTANCE}`
-    );
-
-    Object.keys(params).forEach((key) => {
-      url.searchParams.append(key, params[key]);
-    });
-
-    const response = await fetch(url.toString());
-
-    if (!response.ok) {
-      throw new Error(`Ошибка ${response.status}: ${response.statusText}`);
-    }
-
-    return response.json();
-  },
-
-  //idInstance, apiTokenInstance
-
   async post<T>(
     endpoint: string,
     body: object,
@@ -58,5 +35,39 @@ export const apiClient = {
     }
 
     return response.json();
+  },
+
+  async getNotificationData<T>(
+    idInstance: string,
+    apiTokenInstance: string,
+    receiveTimeout: number
+  ): Promise<T> {
+    const url = `${API_URL}/waInstance${idInstance}/receiveNotification/${apiTokenInstance}?receiveTimeout=${receiveTimeout}`;
+
+    const response = await fetch(url, {
+      method: 'GET',
+      redirect: 'follow',
+    });
+
+    if (!response.ok) {
+      throw new Error(`Ошибка ${response.status}: ${response.statusText}`);
+    }
+
+    return response.json();
+  },
+
+  async deleteNotification(
+    receiptId: number,
+    idInstance: string,
+    apiTokenInstance: string
+  ): Promise<void> {
+    const response = await fetch(
+      `${API_URL}/waInstance${idInstance}/deleteNotification/${apiTokenInstance}/${receiptId}`,
+      { method: 'DELETE' }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Ошибка ${response.status}: ${response.statusText}`);
+    }
   },
 };

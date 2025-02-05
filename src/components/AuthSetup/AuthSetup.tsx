@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import styles from './AuthSetup.module.scss';
-
-interface AuthSetupProps {
-  onSave: (id: string, token: string) => void;
-}
+import { AuthSetupProps } from './types';
 
 const AuthSetup = ({ onSave }: AuthSetupProps) => {
   const [idInstance, setIdInstance] = useState('');

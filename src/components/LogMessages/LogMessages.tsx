@@ -1,8 +1,5 @@
 import styles from './LogMessages.module.scss';
-
-interface LogMessagesProps {
-  messages: string[];
-}
+import { LogMessagesProps } from './types';
 
 export const LogMessages = ({ messages }: LogMessagesProps) => {
   if (!messages || messages.length === 0) {
@@ -15,6 +12,7 @@ export const LogMessages = ({ messages }: LogMessagesProps) => {
 
   return (
     <div className={styles.container}>
+      <h2>Уведомления:</h2>
       <div className={styles.messages}>
         <ul>
           {messages.map((message, index) => (
