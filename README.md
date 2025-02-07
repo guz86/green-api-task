@@ -9,7 +9,7 @@ Message Sending: Once a contact is selected, users can send messages to them.
 Notification System: The application supports receiving notifications when the selected contact replies. These notifications are handled in real-time, ensuring the user stays informed about incoming messages.
 The app simplifies interaction with contacts and provides a smooth experience for sending and receiving messages through the Green API.
 
-Deploy: 
+Deploy: [https://green-api-task-sigma.vercel.app/](https://green-api-task-sigma.vercel.app/)
 
 ## Author
 
