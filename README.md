@@ -18,7 +18,7 @@ Deploy: [https://green-api-task-sigma.vercel.app/](https://green-api-task-sigma.
 ## Setup and Running
 
 - Use `node 22.x` or higher.
-- Clone this repo: `$ git clone https://github.com/guz86/green-api-task`. 
+- Clone this repo: `$ git clone https://github.com/gordienkodev/green-api-task`. 
 - Install dependencies: `$ npm install`.
 - Start server: `$ npm run dev`.
 - Now you can see web application to the address: `http://localhost:5173/`.
