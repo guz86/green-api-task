@@ -13,7 +13,7 @@ Deploy: [https://green-api-task-sigma.vercel.app/](https://green-api-task-sigma.
 
 ## Author
 
-- [Pavel Gordienko](https://github.com/guz86)
+- [Pavel Gordienko](https://github.com/gordienkodev)
 
 ## Setup and Running
 
